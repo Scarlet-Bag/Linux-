@@ -1,0 +1,28 @@
+**UBUNTU server**
+
+Setting up firewall:
+sudo apt install ufw
+sudo ufw app list>>shows app list that is allowed
+sudo ufw allow OpenSSH >>allows ssh
+sudo ufw allow <port number> allows port number
+sudo ufw allow 22 >>allows port 22
+
+
+Specific Port Ranges
+You can specify port ranges with UFW. Some applications use multiple ports, instead of a single port.
+
+For example, to allow X11 connections, which use ports 6000-6007, use these commands:
+
+sudo ufw allow 6000:6007/tcp
+sudo ufw allow 6000:6007/udp
+
+For allowing specific IP address:
+sudo ufw allow from 203.0.113.4
+
+sudo ufw deny from 203.0.113.4
+
+sudo ufw deny out 25 >>denies port
+sudo ufw status numbered>>checks status numbered
+
+sudo ufw status verbose>>checks status
+sudo ufw disable >>disbles

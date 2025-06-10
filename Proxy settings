@@ -1,0 +1,42 @@
+Step 1:
+Go to /etc/apache2/conf/httpd.conf
+Here find the domain or subdomain and remove the '#" sign in front of the two paths as seen below.
+/etc/apache2/conf.d/userdata/std/2_4/username/domainname.com/*.conf
+/etc/apache2/conf.d/userdata/ssl/2_4/username/domainname.com/*.conf
+
+Step 2 after removing the hash sign, proxy becomes active.
+Step3 Copy the path you just removed the hash and make a directory same as that
+command for it :mkdir -p /etc/apache2/conf.d/userdata/std/2_4/username/domainname
+mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/username/domainname
+step4 After you make the folder add the new folder add a new file in both the folder named as proxy.conf
+
+(make sure the path becomes as /etc/apache2/conf.d/userdata/ssl/2_4/username/domainname/proxy.conf and /etc/apache2/conf.d/userdata/std/2_4/username/domainname/proxy.conf)
+Step 5 add a code in first file in /etc/apache2/conf.d/userdata/std/2_4/username/domainname/proxy.conf
+vi proxy.conf
+
+# This is for normal requests
+ProxyPass / http://127.0.0.1:3001/
+ProxyPassReverse / http://127.0.0.1:3001/
+
+and save it.Please note here port used is 3001
+
+Step6 add the code in /etc/apache2/conf.d/userdata/ssl/2_4/username/domainname/proxy.conf
+vi proxy.conf
+
+SSLProxyEngine On
+ProxyPreserveHost On
+ProxyRequests Off
+
+
+# This is for normal requests
+ProxyPass / http://103.212.120.210:3001/
+ProxyPassReverse / http://103.212.120.210:3001/
+
+and save.
+
+Step7 : httpd -t 
+This command checks syntax
+Step8:restart apache by the command as 
+systemctl restart httpd
+
+

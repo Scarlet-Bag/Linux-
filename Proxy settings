@@ -29,8 +29,8 @@ ProxyRequests Off
 
 
 # This is for normal requests
-ProxyPass / http://103.212.120.210:3001/
-ProxyPassReverse / http://103.212.120.210:3001/
+ProxyPass / http://127.0.0.1:3001/
+ProxyPassReverse / http://127.0.0.1:3001/
 
 and save.
 

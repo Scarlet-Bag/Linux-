@@ -1,0 +1,8 @@
+PostGreSQL
+sudo systemctl start postgresql
+
+Log file diercetory /var/lib/pgsql/data/log/dateof_file
+
+Also check log files for control panel :
+
+grep -i postgresql /usr/local/cpanel/logs/error_log

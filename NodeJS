@@ -1,0 +1,10 @@
+To install a particular node version using nvm, also installs nvm and npm
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.bashrc
+nvm list-remote
+nvm install v12.14.1
+nvm list
+nvm use v12.14.1
+node --version
+
+nvm alias default v12.14.1

@@ -1,0 +1,31 @@
+Steps for creating a backup scripts/db-backup
+
+1.Create a new folder:
+mkdir /root/scripts
+
+(It should be like this : 0 2 * * * /bin/sh /root/scripts/db-backup.sh)
+
+2.Create a backup script as
+vi db-backup.sh
+
+Add the contents below:
+
+
+mkdir -p /backup/`date | awk {'print $1'}`/MySQL
+for  i in `mysql -u root -h localhost  -Bse 'show databases'`; do mysqldump --lock-tables=0  $i | gzip > /backup/`date | awk {'print $1'}`/MySQL/$i.sql.gz ; done
+
+Then save
+
+3.add permissions to the script
+
+chmod 755 db-backup.sh
+
+4. Crontab -e
+add the below line
+0 2 * * * /bin/sh /root/scripts/db-backup.sh
+
+5.You can run the backup by running the backup script as
+
+/bin/sh /root/scripts/db-backup.sh
+
+or /bin/sh db-backup.sh

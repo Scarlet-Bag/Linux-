@@ -88,3 +88,16 @@ wp user create username email@example.com --role=administrator --user_pass='M(v@
 To delete the user once troubleshooting done
 wp user delete username
 ================================================================
+When media does not show in library
+
+Disable Conflicting Plugins Temporarily
+Temporarily disable:
+
+Image optimization plugins (e.g., Smush, ShortPixel)
+
+Security plugins (e.g., Wordfence)or Jetpack
+
+Page builders (e.g., Elementor)
+
+Try regenrate thumbnails plugins
+

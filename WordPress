@@ -1,0 +1,90 @@
+CORE FILES replace
+
+take a backup by commands then verify checksum
+
+zip -r public_html1 public_html
+
+wp core verify-checksums --allow-root
+grep version wp-includes/version.php
+rm -rf wp-admin wp-includes index* about.php cgi-bin
+wp core download --force --skip-content --version=6.6.1 --allow-root
+chown  username.username wp-admin wp-includes index.php -R
+
+===================================================
+add this when plugins installation asks for ftp credentials
+
+define('FS_METHOD', 'direct');
+
+=================================================
+if wp cli is not seen install the wp-cli from :
+
+https://wp-cli.org/
+
+=============================================
+
+cron jobs for wordpress
+
+<FilesMatch "^(xmlrpc\.php|wp-trackback\.php|wp-config\.php|wp-cron\.php)">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+Also check and comment fi any disable function is there for crons
+
+==============================================================
+if databases are not able to be edited.
+
+enable the autoincreen=m,ent as https://prnt.sc/1LCsF8ujgyA8
+
+structure>autoincrement
+
+=============================================================
+
+Salt keys:
+
+You can easily add unique phrases. If you open api.wordpress.org/secret-key/1.1/salt/ in your browser you get randomly generated phrases which you can copy and paste into your wp-config.php file. Enabling configure security keys in Toolkit does that for you: it grabs random phrases and adds them to your wp-config.php file.
+
+================================================================
+
+==========================================================
+Add Cache-Control Headers:
+===============================================
+
+
+Add Cache-Control Headers: Insert the following snippet inside the <IfModule mod_expires.c> block in your .htaccess file to specify cache control for different types of static assets:
+
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+    Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+This ensures that images are cached for 365 days and other static files like JavaScript and stylesheets are cached for 30 days, optimizing load times and leveraging browser caching effectively.
+
+Add Expires Headers: If you prefer using “Expires” headers, add the following snippet instead, which also specifies efficient cache policies for your assets:
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access 1 year"
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType text/css "access 1 month"
+    ExpiresByType text/html "access 1 month"
+    ExpiresByType application/pdf "access 1 month"
+    ExpiresByType text/x-javascript "access 1 month"
+    ExpiresByType application/x-shockwave-flash "access 1 month"
+    ExpiresByType image/x-icon "access 1 year"
+    ExpiresDefault "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+========================================================================
+if toolkit gives errors and sites are not seen updated package
+https://support.cpanel.net/hc/en-us/articles/1500000253161-Updating-WP-Toolkit
+
+=====================================================================
+
+To add user for troubleshooting
+wp user create username email@example.com --role=administrator --user_pass='M(v@owBhQe6O'
+To delete the user once troubleshooting done
+wp user delete username
+================================================================

@@ -1,0 +1,39 @@
+Articles referred: https://support.cpanel.net/hc/en-us/articles/10125412450711-How-to-find-when-an-email-forwarder-was-added
+
+https://support.cpanel.net/hc/en-us/articles/360050472774-How-do-I-view-Webmail-access-logs
+
+https://support.cpanel.net/hc/en-us/articles/1500012467681-How-To-List-Email-Login-History
+
+ Host access controls:
+
+https://hostarmada.com/tutorials/getting-started/whm/how-to-use-the-host-access-control-feature-in-the-whm/
+
+When you are redirected to the “Host Access Control” page you will see a brief description of the feature on the top. Underneath this description, you will see examples of how you can deny or allow an IP address or an entire IP range.
+
+Here are all of the services that the “Host Access Control” feature allows you to manage access to.
+
+cPanel (cpaneld)
+WHM (whostmgrd)
+Webmail (webmaild)
+Web Disk (cpdavd)
+FTP (ftpd)
+SSH (sshd)
+SMTP (smtp)
+POP3 (pop3)
+IMAP (imap)
+
+=======================================================
+Logging
+----------------------
+
+grep -a passwd_pop /usr/local/cpanel/logs/access_logs | grep <username>
+This will show you passwd editing logs
+
+-----------------------------------------------
+
+For SSL on hostname :
+
+/usr/local/cpanel/bin/checkallsslcerts
+
+Use the above command in terminal
+========================================

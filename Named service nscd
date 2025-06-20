@@ -1,0 +1,7 @@
+systemctl restart nscd
+
+Config file at : /etc/nsswitch.conf
+
+Output of trace the wsof PID 
+
+Logs from journalctl -u nscd

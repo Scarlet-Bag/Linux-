@@ -7,3 +7,6 @@ csf -ta for temp whitelist/allow
 csf -dr deny
 csf -a to allow
 
+Installation of CSF
+
+Steps can be used from https://download.configserver.com/csf/install.txt

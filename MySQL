@@ -1,1 +1,33 @@
 MySQL related steps and details:
+
+MYSQL related:
+
+This is when you want to enable remote connections for any particular user.Change user as per requirements.
+
+Login to mysql
+
+
+UPDATE mysql.user SET Host='%' WHERE User='root' AND Host='localhost';
+
+FLUSH PRIVILEGES;
+
+=======================================================================
+UPGRADE og mysql:
+========================================================
+ To upgrade to MySQL 8.0, the existing version must be removed from the server. Therefore, please take a backup of all your databases and update us on the same ticket once it's done.
+
+
+Additionally, you may need to update your current databases to ensure compatibility with MySQL 8.0. We recommend consulting your developer to verify that your databases will function correctly with your existing site.
+
+
+https://docs.cpanel.net/whm/database-services/upgrade-database-version/
+
+Steps:
+
+First take a backup
+Then take downtime in case of any issues.
+After that there is an option in WHM and do it from there.
+
+Login to WHm and search for SQL services
+Locate and select 'MYSQL/mariadb upgrade
+Select the desired version and click on continue

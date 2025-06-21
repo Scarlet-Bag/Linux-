@@ -1,0 +1,9 @@
+Config security firewall commands:
+
+cat /etc/csf/csf.conf | grep CC_DENY --- to check country block on server
+
+csf -ta for temp whitelist/allow
+
+csf -dr deny
+csf -a to allow
+

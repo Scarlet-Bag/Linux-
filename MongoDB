@@ -1,0 +1,11 @@
+systemctl status mongod
+
+mongosh >>this will show you local connection.
+
+In /etc/mongo.conf you will see bind address
+
+It should be 127.1.0.0 for local connection and it should be 0.0.0.0. for all IPv4 and IPv6 addresses.
+
+==============================================================================================
+
+

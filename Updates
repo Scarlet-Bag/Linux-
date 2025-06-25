@@ -1,0 +1,14 @@
+WHm update issues:
+
+
+/scripts/upcp --force
+
+use less or tail comamnd in log file for example
+
+less /var/cpanel/updatelogs/last
+less /var/cpanel/updatelogs/update.704622.161638279.1749184398.log
+
+Then do accordingly.
+Manual update via:
+scripts/update-packages
+

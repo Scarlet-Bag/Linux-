@@ -31,3 +31,22 @@ After that there is an option in WHM and do it from there.
 Login to WHm and search for SQL services
 Locate and select 'MYSQL/mariadb upgrade
 Select the desired version and click on continue
+
+========================================================
+Procedures not updated or definer errors:
+============================================
+Take a backup of the database
+
+mysqldump DB > DB.sql
+
+step2:craete a dump of the procedure
+
+mysqldump --single-transaction --no-data --no-create-info --routines --skip-triggers databasename > storedProcedures.sql
+
+step3: vi the stored procedure file and then do the sed command
+
+sed -i 's/root/cpanelusername/g' storedProcedures.sql
+
+step5:
+import the storedprocedures.sql again
+==========================================================================

@@ -1,0 +1,14 @@
+chattr [operator] [flags] [filename]
+
+sudo chattr +i File.txt
+
+lsattr File.txt
+
+
+To unset the attribute, you will have to execute the chattr command in the following manner:
+
+chattr -[attribute] Filename
+Here, you will have to append the attribute you want to unset with the - operator.
+
+
+https://linuxhandbook.com/chattr-command/

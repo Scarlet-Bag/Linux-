@@ -1,0 +1,22 @@
+ netstat -nap | grep :80
+ netstat -nap | grep :443
+top -cd3
+netstat -nap | grep :80 | wc -l
+
+In case there is a wp-login attck like the load is due to wp-login pages only
+
+Please add this in service confuguration >apache configuration>editor
+
+<FilesMatch "^(xmlrpc\.php|wp-trackback\.php|wp-cron\.php|wp-login\.php)">
+Order Deny,Allow
+Deny from all
+</FilesMatch>
+
+https://prnt.sc/jig9OI2EslqI
+
+https://prnt.sc/9NLmko6iIXEN
+
+Check iotop
+
+----------------------------------------------------
+Check if exim is taking up resources

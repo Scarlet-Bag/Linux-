@@ -1,0 +1,14 @@
+So to start the process, we should be in our source code directory. And in that, we should have the .js files, which help us to start the process in Nodejs.
+
+pm2 start tla.js
+
+Now let’s suppose you have to start the service or process with a particular name, then use the –name option with pm2.
+
+$ pm2 start tla.js --name TLA-PROCESS
+
+$ pm2 start all
+
+$ pm2 stop all
+
+https://tastethelinux.com/pm2-commands-list-node-linux-2/
+

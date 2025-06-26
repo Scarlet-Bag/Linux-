@@ -1,0 +1,12 @@
+sudo apt update
+sudo apt install ufw
+sudo ufw enable
+sudo ufw status
+
+sudo ufw status numbered >>to check Ip address
+sudo ufw delete deny from ip_address
+sudo ufw status
+ufw allow 21/tcp
+ ufw allow from 192.168.1.100
+
+ tail -f /var/log/ufw.log 

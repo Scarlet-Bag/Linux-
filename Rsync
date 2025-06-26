@@ -1,0 +1,11 @@
+rsync -arv -e "ssh -p 22999" example.com root@ipaddress:/home/username/
+
+Go in the source path and replace the * with the folder that is required.
+rsync -va -e "ssh -p 22999" *  root@ipaddress:/home/username/
+
+
+Easiest is to go thr file location and then copy replace source and then go to destination.
+
+rsync -arv -e "ssh -p 22999" <sourcefoldername> root@ipaddress:/home/username/
+
+Here destination is root@serverIP and then the path.

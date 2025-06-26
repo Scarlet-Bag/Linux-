@@ -1,0 +1,50 @@
+ exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | sh
+  exim -bpc
+  
+  exim -bp
+ exim -Mvh 1tkHSK-00000006gk6-3kqq
+
+exim -bpr | grep frozen | awk {'print $3'} | xargs exim -Mrm
+
+cat /var/log/exim_mainlog | less
+
+exim -bp | grep SPAM
+
+exim -Mrm <exim-id>   -----to remove the emails
+
+exiqgrep -f spammer@example.tld -y 1800 -i | xargs exim -Mrm ----to o remove all messages older than 30 mins
+
+exim -bp ------------------------->>>>> to check
+exim -bpc ----------------------->>>>> count
+exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | sh
+
+Gsuit txt records
+
+Type: MX record
+
+Value: SMTP.GOOGLE.COM
+
+disable smtp restrictions: https://www.interserver.net/tips/kb/enable-smtp-restrictions/
+
+
+direct admin mailfiles:
+
+Main account email addresses:
+/var/spool/mail
+
+Mailusers set up for each domain:
+/var/spool/virtual/<domain-name>/<emailusername>
+
+Imap mailboxes for each user
+/home/<username>/imap/<domain-name>/<emailusername>
+
+
+grep cwd=/ /var/log/exim_mainlog | cut -d = -f 2 | cut -d " " -f 1 | sort | uniq -c | sort -n
+
+spam emails
+
+Type: TXT record
+
+value: v=spf1 include:_spf.google.com ~all
+
+

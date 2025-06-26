@@ -1,0 +1,18 @@
+sudo apt update
+apt install apache2
+ufw app list
+sudo ufw allow in "Apache"
+http://your_server_ip
+
+Step 2 — Installing MySQL
+sudo apt install mysql-server   >>>Instalalation
+sudo mysql  >> Go to prompt
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';  >>>> chnage password
+exit
+
+sudo mysql_secure_installation  >>securing the installation
+do the necessary steps
+
+Step 3 — Installing PHP
+sudo apt install php libapache2-mod-php php-mysql
+php -v

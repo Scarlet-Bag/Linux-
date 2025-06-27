@@ -3,3 +3,6 @@ find . -type f -exec chmod 0644 {} \;
 
 
 find -type f -size +500M -exec du -sh {} \;
+
+
+find . -printf "%h\n" | cut -d/ -f-2 | sort | uniq -c | sort -rn >>>shares you which folders are using the most disk space

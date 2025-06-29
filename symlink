@@ -1,0 +1,1 @@
+ln -s </target-directory/target-file> </symlink-directory/example-symlink>

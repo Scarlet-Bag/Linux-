@@ -1,4 +1,35 @@
- exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | sh
+1)count mail
+#exim -bpc
+
+2)inbox
+#exim -bp
+
+3)to check email boady
+#exim -Mvb header id
+
+4)to check mails with header
+#exim -Mvh (header)
+
+5)command to remove empty mails
+#exiqgrep -if "<>" |xargs exim -Mrm
+
+6)search the frozen mails and delete
+#exim -bpr | grep frozen | awk {'print $3'} | xargs exim -Mrm
+
+7)remove email more than 4 hrs
+#exiqgrep -o 14440 -i | xargs exim -Mrm
+exiqgrep -o 10 -i | xargs exim -Mrm
+
+Spaming check :
+1) To check count of mail from users:
+#grep "cwd=/home" /var/log/exim_mainlog | awk '{for(i=1;i<=10;i++){print $i}}' | sort | uniq -c | grep cwd | sort -n
+
+2) To list Suspicious processes
+#tail -n 500 /var/log/lfd.log | egrep 'Suspicious Process|logins|Exceeded|Script Alert' --color
+
+
+
+exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | sh
   exim -bpc
   
   exim -bp

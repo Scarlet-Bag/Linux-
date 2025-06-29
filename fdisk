@@ -1,0 +1,4 @@
+fdisk -l
+fdisk -l /dev/sda
+fdisk /dev/sda                     >>to partition
+

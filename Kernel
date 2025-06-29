@@ -1,0 +1,45 @@
+uname -r
+uname -a
+
+dnf list | grep kernel
+rpm -q --last <kernelversion>         >>this will tell when was the last kernel updated
+
+yum update 
+
+dnf -history 
+dnf --info
+dnf --help
+
+we can also roll back a kernel
+
+
+On centos;
+
+Remove the newer kernel (after booting into the older one):
+
+    Once booted into the older kernel, use yum history to find the transaction ID of the kernel update.
+    Undo the update using yum history undo <transaction_id>. Alternatively, you can directly remove the newer kernel using yum remove <kernel_package_name>. For example, yum remove kernel-4.18.0-XXX.el8.x86_64
+    Confirm the removal when prompted. 
+
+4. Update GRUB (if necessary): 
+
+    After removing the newer kernel, you might need to update the GRUB configuration to reflect the changes. You can use grub2-mkconfig -o /boot/grub2/grub.cfg to regenerate the GRUB configuration file. 
+
+5. Reboot and verify: 
+
+    Reboot your system.
+    After the reboot, verify that you are now running the older kernel using uname -r. 
+=================================================
+On debian based
+
+Edit the GRUB configuration:
+
+    Use a text editor (like nano or vim) with root privileges to edit the /etc/default/grub file.
+    Locate the line GRUB_DEFAULT=0 (or similar, it might reference a specific kernel).
+    Change it to the correct entry from the GRUB menu, which might be a number corresponding to the kernel's position or the kernel's full name (as shown by ls /boot/).
+    For example, if you want to make the second kernel on the list the default, you would change the line to GRUB_DEFAULT="1>Ubuntu, with Linux 5.15.0-25-generic" (this is an example, use the actual name from your system).
+
+Update GRUB:
+
+    After editing the file, run sudo update-grub (or sudo grub-mkconfig -o /boot/grub/grub.cfg on some systems) to apply the changes. 
+

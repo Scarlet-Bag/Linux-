@@ -1,0 +1,12 @@
+hostnamectl
+hostnamectl set-hostname server.domainname.com
+
+  timrdatectl 
+vim /etc/chrony.conf
+
+  server server.example.com iburst
+:wq
+
+  systemctl restart chronyd
+systemctl enable chronyd
+

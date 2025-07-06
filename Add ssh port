@@ -1,0 +1,80 @@
+sudo systemctl status firewalld
+If it’s active, allow the new port (e.g., 2222):
+
+bash
+Copy
+Edit
+sudo firewall-cmd --permanent --add-port=2222/tcp
+sudo firewall-cmd --reload
+✅ Verify:
+Run sudo firewall-cmd --list-all to confirm the new port is open.
+
+3. Edit SSH Configuration File
+Open the SSH config:
+
+bash
+Copy
+Edit
+sudo nano /etc/ssh/sshd_config
+Find this line:
+
+bash
+Copy
+Edit
+#Port 22
+Change it to (uncomment and modify):
+
+bash
+Copy
+Edit
+Port 2222
+💡 You can also allow both ports temporarily for testing:
+
+bash
+Copy
+Edit
+Port 22
+Port 2222
+Save and exit (Ctrl+O, Enter, then Ctrl+X).
+
+4. Restart the SSH Service
+bash
+Copy
+Edit
+sudo systemctl restart sshd
+5. Test SSH on the New Port
+From another terminal or system, run:
+
+bash
+Copy
+Edit
+ssh -p 2222 youruser@yourserver_ip
+Make sure it works before closing your current session.
+
+6. (Optional) Disable Old Port After Testing
+Once you confirm the new port works:
+
+Remove port 22 from firewalld:
+
+bash
+Copy
+Edit
+sudo firewall-cmd --permanent --remove-port=22/tcp
+sudo firewall-cmd --reload
+Remove or comment out Port 22 in /etc/ssh/sshd_config.
+
+Then restart SSH again:
+
+bash
+Copy
+Edit
+sudo systemctl restart sshd
+🛑 WHM Users Note:
+If you're using WHM, be aware that WHM may revert network/SSH changes during updates or restarts. Always keep emergency console access (e.g., IPMI, KVM) available in case of lockout.
+
+Let me know the port you're planning to use, and I can help check if it's safe or already in use.
+
+
+
+
+

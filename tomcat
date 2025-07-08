@@ -1,0 +1,26 @@
+tomcat restart
+
+sh /opt/tomcat/bin/shutdown.sh
+sh /opt/tomcat/bin/startup.sh
+
+
+You need to go this path via root /opt/tomcat and run the below command:
+sh bin/startup.sh >>>> for restaring the tomcat service
+
+use ubic command for ea tomcat applications.
+for example: /home/sarakuapp/ea-tomcat85/bin
+
+(For tomact with cpal ubic is configured.)
+
+https://docs.cpanel.net/knowledge-base/web-services/the-cpuser_service_manager-script-and-the-ubic-subsystem/
+
+
+also can be in root/tomcat/bin
+
+do sh bin/startup.sh >>>> for restaring the tomcat service
+
+
+Installation steps:
+
+
+https://oracle-base.com/articles/linux/apache-tomcat-10-installation-on-linux

@@ -1,0 +1,15 @@
+screen -S mysession
+
+for example : screen -S srmbrealfabrica >>>to start the application and go in screen
+Crtl +A then D >> to come out without disturbing the app.
+
+
+List all screen sessions
+screen -ls
+
+Reattach to a screen session
+Edit
+screen -r mysession
+
+
+

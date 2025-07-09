@@ -1,0 +1,19 @@
+For installing it use 
+apt install sysstat
+
+ vi /etc/default/sysstat
+
+ Then set it to true
+ Change the line:
+
+Edit
+ENABLED="false"
+to
+
+Edit
+ENABLED="true"
+
+systemctl restart sysstat
+
+ systemctl enable sysstat
+ systemctl start sysstat

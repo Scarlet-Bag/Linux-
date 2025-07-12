@@ -1,0 +1,66 @@
+open Terminal in Cpanel account
+
+ssh-keygen -t rsa -b 4096 -c "yourcpanalaccount@yourdomain.com"
+it will ask you to give file name to save the key ,give the full path :
+
+/home/usernameofcpanel/.ssh/filename_key
+
+do not enter passphasrse - pree enter
+
+It will generete SSH key
+
+in Cpanel you can open SSHKEy section - you will see private and public key with the name filename_key
+
+Authrise the key from cpanel
+
+Add this key in Github - https://github.com/youraccount/Repositoryname/settings
+
+you can go to settings from clicking on repository in Security section go to Deploy key -
+
+click on Add Deploy Key
+
+Add the Key details - Copy public key details from Cpanel SSH Key - for filename_key
+
+and provdie name and copu the public key
+
+chcek Allow Write acess - if you wnat to write to Github from cpanel
+
+once done come back to Cpanel
+
+go to .ssh folder open config file
+
+add the following to config and save the file
+
+Host [Repositoryname].github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/filename_key
+  IdentitiesOnly yes
+
+Host [Repositoryname2].github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/filename2_key
+  IdentitiesOnly yes
+Now open Terminal from Cpanel
+
+ssh -Tv git@repositoryname.github.com
+it should give the following message if successfully connected Hi [Gitowneraccountname]/[Repositoryname] you have successfully authenticated,but GitHub doesn't provide shell access.
+
+you are now ready to connect the GitHub to gitversion
+
+from your GitHub repository copy the clone URL of ssh
+
+git@github.com:[Gitowneraccountname]/[Repositoryname].git
+
+go to Gitversion inside cpanel
+
+click on Create
+
+copy the clone URL to clone text box
+
+git@github.com:[Gitowneraccountname]/repository.git change the url to below
+
+git@[Repositoryname].github.com:[Gitowneraccountname]/repository.git
+
+add the subdomain as [Repositoryname] and you will be able to get the cpanel gitversion working with multiple git repositories

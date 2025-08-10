@@ -1,0 +1,9 @@
+redis-cli ping
+
+pong
+
+
+systemctl status redis
+
+
+systemctl start redis

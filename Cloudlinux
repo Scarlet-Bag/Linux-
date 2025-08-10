@@ -1,0 +1,15 @@
+The basic kernel of Alma linux shows 5.14.0-570.32.1.el9_6.x86_64
+Cloud linux kernel shows lve
+
+To check license 
+cldetect --check-license
+
+To update license 
+cldetect --update-license
+
+To check any issues of the plugin Cloudlinux
+cd /usr/local/directadmin/plugins
+ls
+
+You should see a folder like cloudlinux. If not, the plugin is missing.
+

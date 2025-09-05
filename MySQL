@@ -50,3 +50,10 @@ sed -i 's/root/cpanelusername/g' storedProcedures.sql
 step5:
 import the storedprocedures.sql again
 ==========================================================================
+Enabling Slow query log
+Add this in my.cnf file
+
+slow_query_log = 1
+slow_query_log_file = /var/lib/mysql/slow.log
+long_query_time = 2
+log_queries_not_using_indexes = 0

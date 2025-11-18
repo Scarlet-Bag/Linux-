@@ -9,3 +9,8 @@ Easiest is to go thr file location and then copy replace source and then go to d
 rsync -arv -e "ssh -p 22999" <sourcefoldername> root@ipaddress:/home/username/
 
 Here destination is root@serverIP and then the path.
+
+
+example:
+
+rsync -arv -e "ssh -p 22999" index.php root@103.212.121.73:/home/packmate/public_html

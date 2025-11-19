@@ -37,3 +37,8 @@ For SSL on hostname :
 
 Use the above command in terminal
 ========================================
+
+/etc/apache2/conf/httpd.conf is the file for getting all domain info or configurations.
+==================================
+/home/USERNAME/public_html/subdomain/
+

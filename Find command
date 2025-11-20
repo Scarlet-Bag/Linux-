@@ -11,3 +11,7 @@ sudo find /var/log/ -perm -g=w ! -perm /o=rw > /home/bob/data.txt
 This will find in the directorty with group owership as w and others are now.
 
 find /home/bob -type f -perm 402 > /home/bob/secfile.txt
+
+sudo find /usr -type f -size +5M -size -10M > /home/bob/size.txt
+
+this will find file of 5 m to 10 m

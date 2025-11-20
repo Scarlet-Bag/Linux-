@@ -9,3 +9,5 @@ find . -printf "%h\n" | cut -d/ -f-2 | sort | uniq -c | sort -rn >>>shares you w
 
 sudo find /var/log/ -perm -g=w ! -perm /o=rw > /home/bob/data.txt
 This will find in the directorty with group owership as w and others are now.
+
+find /home/bob -type f -perm 402 > /home/bob/secfile.txt

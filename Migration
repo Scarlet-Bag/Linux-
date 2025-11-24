@@ -1,4 +1,4 @@
 follow the steps for quest to helix migration for remaining accounts
-/scripts/pkgacct.helix.herosite.pro username
+/scripts/pkgacct.servername username
 rsync the the backup file to the helix server
 /scripts/restorepkg backupfile

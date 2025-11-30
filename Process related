@@ -1,0 +1,38 @@
+pgrep -a syslog
+
+will give you all the dtailsof the process
+
+NiceNess:
+
+Niceness value can be between -20 to +19
+
+Higher nice value = lower proririty
+
+ex nice -n 11 bash, whwere nice is the cmd and 11 is the nice value for bash process.
+ps l >>>shows nice values
+ps aux shows all values
+ps -U aaron >>shows user specific
+
+ps lax >>all with nice values
+
+To see forest like processes that will show all parent processes and the child process please use the f option.
+Ex:
+ps fax
+renice to add the nice value to an existing process.
+
+Ex:
+renice 7 8789
+
+where 8789 is the PID
+
+Only a root user can change nice values which are very low so that their priority is high.The regular user can change the pririty or renice only once.
+
+-------------------------------------------
+
+Killing processes;
+
+kill -L >>gives you list of signals.
+
+kill -9 >>kills the process
+
+You can ch
